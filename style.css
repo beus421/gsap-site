@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
+
+h1, p {
+  
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+    position: relative;
+}
+
+.navbar {
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    padding: 30px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.nav-link-container {
+    display: flex;
+    gap: 30px;
+}
+
+.logo {
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+.nav-links{
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.nav-links:hover{
+    opacity: 0.6;
+}
+
+.primary-btn{
+    padding: 14px 28px;
+    background-color: #495e2d; /* Olive green */
+    color: #fff;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    border-radius: 30px;
+    font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.primary-btn:hover{
+    transform: scale(1.02);
+    box-shadow:rgba(0, 0, 0, 0.54) 1px 10px 31px -2px;
+
+}
+
+.hero-section {
+    /* padding: 60px 60px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    height: 100vh;
+    position: relative;
+}
+
+.main-text {
+    font-family: "Libre Baskerville", serif;
+    font-size: 130px;
+    font-weight: 600;
+    letter-spacing: -6px;
+    margin-top: 40px;
+    text-align: center;
+    z-index: 2;
+    color: #000;
+}
+
+.green-bg {
+    position: absolute;
+    bottom: -50px; /* Extends below screen */
+    left: 40px;
+    right: 40px;
+    height: 45vh; /* Takes up bottom half of screen */
+    background-color: #8da178;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1; /* Sits behind tablet */
+}
+
+/* Replace your existing .svg-container with this */
+
+.sleeve-container {
+    position: absolute;
+    top: 350px; /* Positioned below the main text */
+    width: 1224px; /* Matches your SVG width */
+    height: 851px; /* Matches your SVG height */
+    transform: scale(0.75); /* A bit bigger to match design */
+    transform-origin: top center;
+    left: 50%;
+    margin-left: -612px;
+    z-index: 5; /* In front of green-bg */
+    /* Add drop shadow to the tablet */
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.4));
+}
+
+.tablet-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tablet-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Was 2. SVG frame should be below the content */
+    pointer-events: none; /* Allows clicking through the frame if needed */
+}
+
+.tablet-screen {
+    position: absolute;
+    /* We position this precisely where the white path starts in your SVG */
+    /* Based on your SVG paths, the screen starts around x: 26, y: 18 */
+    top: 18px;
+    left: 26px;
+    
+    /* Calculate width/height based on the SVG inner path */
+    width: 1172px;  /* 1224 total width - 26 left gap - 26 right gap */
+    height: 814px;  /* 851 total height - 18 top gap - 19 bottom gap */
+    
+    /* The magic happens here: */
+    border-radius: 36px; /* Matches the inner curve of your SVG */
+    overflow: hidden; /* Clips anything outside the rounded corners */
+    z-index: 2; /* Was 1. Screen content sits ON TOP of the SVG frame */
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the screen perfectly without stretching */
+}
