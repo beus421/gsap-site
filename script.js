@@ -1,7 +1,7 @@
 
 gsap.registerPlugin(ScrollTrigger)
 
-const tl = gsap.timeline()
+let tl = gsap.timeline()
 
 tl.from(
     '.logo',
